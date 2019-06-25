@@ -16,4 +16,4 @@
      
       now_serving(katz_deli) #=> "Currently serving Grace."
      
-      line(katz_deli) #=> "The line is currently: 1. Kent 2. Matz"# Write your code here.
+      line(katz_deli) #=> "The line is currently: 1. Kent 2. Matz"
