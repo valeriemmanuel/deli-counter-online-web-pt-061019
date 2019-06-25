@@ -1,19 +1,50 @@
-      katz_deli = []
-     
-      take_a_number(katz_deli, "Ada") #=> Welcome, Ada. You are number 1 in line.
-      take_a_number(katz_deli, "Grace") #=> Welcome, Grace. You are number 2 in line.
-      take_a_number(katz_deli, "Kent") #=> Welcome, Kent. You are number 3 in line.
-     
-      line(katz_deli) #=> "The line is currently: 1. Ada 2. Grace 3. Kent"
-     
-      now_serving(katz_deli) #=> "Currently serving Ada."
-     
-      line(katz_deli) #=> "The line is currently: 1. Grace 2. Kent"
-     
-      take_a_number(katz_deli, "Matz") #=> Welcome, Matz. You are number 3 in line.
-     
-      line(katz_deli) #=> "The line is currently: 1. Grace 2. Kent 3. Matz"
-     
-      now_serving(katz_deli) #=> "Currently serving Grace."
-     
-      line(katz_deli) #=> "The line is currently: 1. Kent 2. Matz"
+katz_deli = ["Moshe", "Fayge", "Rivki"]
+
+
+def line(array) 
+  if array.length >= 1
+    newarray = []
+    counter = 1 
+    array.each do |name|
+      newarray.push("#{counter}. #{name}")
+      counter += 1 
+    end 
+    puts "The line is currently: #{newarray.join(" ")}"
+  else
+    puts "The line is currently empty."
+  end
+end
+
+line(katz_deli)
+
+def line_simple(array) 
+  current_line = "The simple line is currently:"
+  array.each.with_index(1) do |value, indexemus|  
+
+    current_line << " #{indexemus}. #{value},"    
+  
+  end 
+  puts current_line
+end 
+  
+
+
+
+def take_a_number(line, new_person)
+  line.push(new_person) 
+  puts "Welcome, #{new_person}. You are number #{line.length} in line."
+end
+
+take_a_number(katz_deli, "Fyvish")
+
+def now_serving(line)
+  if line.length == 0 
+    puts"There is nobody waiting to be served!"
+  else
+    puts "Currently serving #{line[0]}." 
+    line.shift
+  end
+end
+
+puts now_serving(katz_deli)
+puts katz_deli
